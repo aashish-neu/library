@@ -27,13 +27,13 @@ h1 {
 
 /* Main */
 
-/* Block Button */
+/* Block Operations */
 
-.block-button {
+.block-operations {
     text-align: center;
 }
 
-.block-button button {
+#add-book-btn {
     padding: 0.8rem;
     border: 2px solid black;
     border-radius: 16px;
@@ -42,10 +42,18 @@ h1 {
     color: white;
 }
 
-.block-button button:hover {
+#add-book-btn:hover {
     color: black;
     background-color: white;
     /* transform: scale(1.05); */
+}
+
+.dialog-add-book {
+    top: 50%;
+    left: 50%;
+    translate: -50%;
+    padding: 1rem;
+    border-radius: 16px;
 }
 
 
@@ -74,7 +82,7 @@ h1 {
 }
 
 .book-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 
 .book-title {
