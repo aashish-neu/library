@@ -31,12 +31,45 @@ h1 {
 
 .block-button {
     text-align: center;
-    padding: 50px 0;
+    /* padding: 50px 0; */
 }
 
 .block-books {
     padding: 50px 0;
 }
+
+.block-books h2 {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.book-wrap {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+}
+
+.book-card {
+    padding: 2rem 0.6rem;
+    border-radius: 24px;
+    box-shadow: black 5px 4px 5px 4px;
+}
+
+.book-title {
+    margin-bottom: 8px;
+}
+
+.book-author {
+    margin-bottom: 8px;
+}
+
+.book-pages {
+    display: block;
+    margin-bottom: 8px;
+}
+
+
 
 
 
