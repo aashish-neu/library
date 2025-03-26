@@ -4,6 +4,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: monospace;
 }
 
 /* Utilities */
@@ -33,27 +34,45 @@ h1 {
     text-align: center;
 }
 
-#add-book-btn {
+#show-dialog-btn {
     padding: 0.8rem;
     border: 2px solid black;
-    border-radius: 16px;
+    border-radius: 6px;
     transition: all 0.3s ease-in-out;
     background-color: black;
     color: white;
+    font-weight: 600;
 }
 
-#add-book-btn:hover {
+#show-dialog-btn:hover {
     color: black;
     background-color: white;
-    /* transform: scale(1.05); */
+    transform: scale(1.05);
 }
 
-.dialog-add-book {
-    top: 50%;
+.add-book-dialog {
+    top: 25%;
     left: 50%;
-    translate: -50%;
+    transform: translateX(-50%);
     padding: 1rem;
     border-radius: 16px;
+    box-shadow: silver 5px 4px 5px 4px;
+}
+
+.add-book-fieldset {
+    border: none;
+    text-align: start;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.add-book-fieldset label {
+    margin-right: 16px;
+}
+
+.add-book-fieldset input {
+    padding-inline: 4px;
 }
 
 
@@ -76,7 +95,7 @@ h1 {
 
 .book-card {
     padding: 2rem 0.6rem;
-    border-radius: 24px;
+    border-radius: 6px;
     box-shadow: silver 5px 4px 5px 4px;
     transition: transform 0.3s ease-in-out;
 }
@@ -104,4 +123,7 @@ h1 {
     text-align: center;
     padding-top: 50px;
     padding-bottom: 24px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
