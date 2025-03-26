@@ -1,4 +1,5 @@
 const bookWrap = document.querySelector(".book-wrap");
+const addBookDialog = document.querySelector(".add-book-dialog");
 
 let myLibrary = [];
 
@@ -18,22 +19,14 @@ Book.prototype.setBookId = function () {
   return crypto.randomUUID();
 };
 
-function addBookToLibrary() {
-  title = "The Lord of the Rings";
-  author = "J.R.R. Tolkein";
-  noOfPages = 1137;
-  hasRead = false;
-  let newBook = new Book(title, author, noOfPages, hasRead);
-  newBook.bookId = newBook.setBookId();
-  myLibrary.push(newBook);
-
-  displayLibrary();
-}
-
+const addBookBtn = document.getElementById("show-dialog-btn");
+addBookBtn.addEventListener("click", () => {
+  addBookDialog.showModal();
+  addBookToLibrary();
+});
 
 function displayLibrary() {
   // remove previously displayed books
-
   bookWrap.replaceChildren();
 
   // display updated books
@@ -64,5 +57,24 @@ function displayLibrary() {
   }
 }
 
-const addBookBtn = document.getElementById("add-book-btn");
-addBookBtn.addEventListener("click", addBookToLibrary);
+function addBookToLibrary() {
+  const addBookBtn = document.querySelector(".add-book-btn");
+  addBookBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    addBookDialog.close();
+
+    const bookTitle = document.getElementById("name_of_book");
+    const title = bookTitle.value;
+    const bookAuthor = document.getElementById("name_of_author");
+    const author = bookAuthor.value;
+
+    const noOfPages = document.getElementById("no_of_pages").value;
+    const hasRead = document.getElementById("book_read_status").value;
+
+    let newBook = new Book(title, author, noOfPages, hasRead);
+    newBook.bookId = newBook.setBookId();
+    myLibrary.push(newBook);
+
+    displayLibrary();
+  });
+}

@@ -18,40 +18,52 @@
     <main>
       <section class="block-operations">
         <div class="wrapper">
-          <button id="add-book-btn">Add Book</button>
+          <button id="show-dialog-btn">New Book</button>
 
-          <dialog class="dialog-add-book" open>
-            <form action="">
-              <label for="name_of_book">Book Name:</label>
-              <input
-                type="text"
-                id="name_of_book"
-                name="name_of_book"
-                placeholder="Enter Book Name"
-              />
-              <label for="name_of_author">Book Author:</label>
-              <input
-                type="text"
-                id="name_of_author"
-                name="name_of_author"
-                placeholder="Enter Author Name"
-              />
-              <label for="no_of_pages">No. of Pages:</label>
-              <input
-                type="text"
-                id="no_of_pages"
-                name="no_of_pages"
-                placeholder="Enter Number of Pages"
-              />
-              <label for="book_read_status">Book Name:</label>
-              <input
-                type="text"
-                id="book_read_status"
-                name="book_read_status"
-                placeholder="Enter Book Name"
-              />
+          <dialog class="add-book-dialog">
+            <form method="dialog">
+              <fieldset class="add-book-fieldset">
+                <label for="name_of_book">Book Name:</label>
+                <input
+                  type="text"
+                  id="name_of_book"
+                  name="name_of_book"
+                  placeholder="Enter Book Name"
+                  
+                />
+              </fieldset>
+              <fieldset class="add-book-fieldset">
+                <label for="name_of_author">Book Author:</label>
+                <input
+                  type="text"
+                  id="name_of_author"
+                  name="name_of_author"
+                  placeholder="Enter Author Name"
+                  
+                />
+              </fieldset>
+              <fieldset class="add-book-fieldset">
+                <label for="no_of_pages">No. of Pages:</label>
+                <input
+                  type="text"
+                  id="no_of_pages"
+                  name="no_of_pages"
+                  placeholder="Enter Number of Pages"
+                  
+                />
+              </fieldset>
+              <fieldset class="add-book-fieldset">
+                <label for="book_read_status">Status:</label>
+                <input
+                  type="text"
+                  id="book_read_status"
+                  name="book_read_status"
+                  placeholder="Enter Book Read Status"
+                  
+                />
+              </fieldset>
 
-              <button>Add Book</button>
+              <button class="add-book-btn">Add Book</button>
             </form>
           </dialog>
         </div>
