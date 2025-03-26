@@ -1,5 +1,7 @@
 const bookWrap = document.querySelector(".book-wrap");
 const addBookDialog = document.querySelector(".add-book-dialog");
+const bookReadStatusBtn = document.querySelector(".book-read-status-btn");
+
 
 let myLibrary = [];
 
@@ -19,10 +21,10 @@ Book.prototype.setBookId = function () {
   return crypto.randomUUID();
 };
 
-const addBookBtn = document.getElementById("show-dialog-btn");
-addBookBtn.addEventListener("click", () => {
+
+const showDialogBtn = document.getElementById("show-dialog-btn");
+showDialogBtn.addEventListener("click", () => {
   addBookDialog.showModal();
-  addBookToLibrary();
 });
 
 function displayLibrary() {
@@ -57,24 +59,30 @@ function displayLibrary() {
   }
 }
 
+// listening for new book button click condition
+const addBookBtn = document.querySelector(".add-book-btn");
+addBookBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  addBookToLibrary();
+
+  addBookDialog.close();
+});
+
+
+
 function addBookToLibrary() {
-  const addBookBtn = document.querySelector(".add-book-btn");
-  addBookBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    addBookDialog.close();
+  const bookTitle = document.getElementById("name_of_book");
+  const title = bookTitle.value;
+  const bookAuthor = document.getElementById("name_of_author");
+  const author = bookAuthor.value;
 
-    const bookTitle = document.getElementById("name_of_book");
-    const title = bookTitle.value;
-    const bookAuthor = document.getElementById("name_of_author");
-    const author = bookAuthor.value;
+  const noOfPages = document.getElementById("no_of_pages").value;
+  const hasRead = document.getElementById("book_read_status").value;
 
-    const noOfPages = document.getElementById("no_of_pages").value;
-    const hasRead = document.getElementById("book_read_status").value;
+  let newBook = new Book(title, author, noOfPages, hasRead);
+  newBook.bookId = newBook.setBookId();
+  myLibrary.push(newBook);
 
-    let newBook = new Book(title, author, noOfPages, hasRead);
-    newBook.bookId = newBook.setBookId();
-    myLibrary.push(newBook);
-
-    displayLibrary();
-  });
+  displayLibrary();
 }
